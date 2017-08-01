@@ -6,6 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login',  component: LoginFormComponent },
+  { path: 'signup', component: SignupFormComponent }
+];
 
 @NgModule({
   declarations: [
@@ -16,7 +23,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [SessionService],
   bootstrap: [AppComponent]

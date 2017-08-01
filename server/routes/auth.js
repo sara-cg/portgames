@@ -13,11 +13,13 @@ function returnMessage(message){
 authRoutes.get('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
   const {
-    username,
+    email,
+    name,
+    rol,
     password
   } = req.body;
 
-  if (!username || !password) {
+  if (!email || !password || !name || !rol) {
     res.status(400).json({
       message: 'Provide username and password'
     });
@@ -25,11 +27,11 @@ authRoutes.post('/signup', (req, res, next) => {
   }
 
   User.findOne({
-    username
+    email
   }, '_id').exec().then(foundUser => {
     if (foundUser) {
       res.status(400).json({
-        message: 'The username already exists'
+        message: 'The user already exists'
       });
       return;
     }
@@ -38,7 +40,9 @@ authRoutes.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const theUser = new User({
-      username,
+      email,
+      name,
+      rol,
       password: hashPass
     }).save().then(user => {
       req.login(user, (err) => {
