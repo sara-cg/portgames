@@ -7,7 +7,11 @@ import { environment } from '../environments/environment';
 
 export interface User{
   _id:string,
-  username:string,
+  email: string,
+  name: string,
+  rol: string,
+  account: string,
+  password: string,
   updated_at:Date,
   created_at:Date
 }
@@ -21,7 +25,7 @@ export class SessionService {
 
   constructor(private http:Http) {
     this.isLoggedIn().subscribe( (user:User) =>{
-      console.log(`Welcome again user ${user.username}`)
+      console.log(`Welcome again user ${user.name}`)
       this.user = user;
       this.startLoginCompleted = true;
     }, e => this.startLoginCompleted = true);
@@ -32,14 +36,18 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  signup(username:string, password:string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/signup`, {username,password}, this.options)
+  signup(email: string,
+  name: string,
+  rol: string,
+  account: string,
+  password: string):Observable<User> {
+    return this.http.post(`${this.BASE_URL}/signup`, {email,name,rol,account,password}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
-  login(username:string, password:string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/login`, {username,password}, this.options)
+  login(email:string, password:string):Observable<User> {
+    return this.http.post(`${this.BASE_URL}/login`, {email,password}, this.options)
       .map(res => {
         this.user = res.json();
         return this.user;

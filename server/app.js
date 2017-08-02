@@ -24,9 +24,7 @@ const app = express();
 
 
 
-var whitelist = [
-    'http://localhost:4200',
-];
+var whitelist = ['http://localhost:4200'];
 var corsOptions = {
     origin: function(origin, callback){
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
@@ -68,6 +66,10 @@ app.use(passport.session());
 
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
+
+const userInfoRoutes = require('./routes/userInfo');
+app.use('/api/userInfo', userInfoRoutes);
+
 
 app.use((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

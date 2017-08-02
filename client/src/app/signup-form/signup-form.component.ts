@@ -11,16 +11,20 @@ export class SignupFormComponent implements OnInit {
   email: string;
   name: string;
   rol: string;
+  account: string;
   password: string;
-  constructor(private session: SessionService) { }
-  ngOnInit() {
-  }
+  user: object; //Refactor
+  constructor(private session: SessionService, private router: Router) { }
+  ngOnInit() {}
 
   signup() {
-    this.session.signup(this.name,this.password)
+    console.log(this.rol)
+    console.log(this.account)
+    this.session.signup(this.name, this.email, this.rol, this.account, this.password)
       .subscribe(
-        (user) => console.log(user),
-        (err) => this.error = err
+      (user) => console.log(user),
+      (err) => this.error = err
       );
+      this.router.navigate(['/main']);
   }
 }

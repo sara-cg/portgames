@@ -16,12 +16,13 @@ authRoutes.post('/signup', (req, res, next) => {
     email,
     name,
     rol,
+    account,
     password
   } = req.body;
 
   if (!email || !password || !name || !rol) {
     res.status(400).json({
-      message: 'Provide username and password'
+      message: 'Provide email and password'
     });
     return;
   }
@@ -61,7 +62,7 @@ authRoutes.post('/signup', (req, res, next) => {
   });
 });
 
-/* Login route: Logs the user in having a username and a password. Uses local strategy from passport */
+/* Login route: Logs the user in having a email and a password. Uses local strategy from passport */
 authRoutes.get('/login',returnMessage("This should be a POST"));
 authRoutes.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {

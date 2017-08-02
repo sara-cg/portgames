@@ -1,5 +1,4 @@
 <router-outlet></router-outlet>
 <div *ngIf="session.user && session.startLoginCompleted">
-  <pre>{{ session.user | json }}</pre>
-  <button (click)="logout()">Logout</button>
+  <button (click)="logout()">Log Out</button>
 </div>

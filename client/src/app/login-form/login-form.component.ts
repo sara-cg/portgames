@@ -8,18 +8,19 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   error: string;
-  email:string;
-  password:string;
+  email: string;
+  password: string;
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
   }
 
   login() {
-    this.session.login(this.email,this.password)
+    this.session.login(this.email, this.password)
       .subscribe(
-        (user) => console.log(user),
-        (err) => this.error = err
+      (user) => console.log(user),
+      (err) => this.error = err
       );
+    this.router.navigate(['/main']);
   }
 
   signup() {
