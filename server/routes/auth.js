@@ -19,8 +19,7 @@ authRoutes.post('/signup', (req, res, next) => {
     account,
     password
   } = req.body;
-
-  if (!email || !password || !name || !rol) {
+  if (!email || !name || !password || !rol) {
     res.status(400).json({
       message: 'Provide email and password'
     });
@@ -44,6 +43,7 @@ authRoutes.post('/signup', (req, res, next) => {
       email,
       name,
       rol,
+      account,
       password: hashPass
     }).save().then(user => {
       req.login(user, (err) => {

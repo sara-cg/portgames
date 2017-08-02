@@ -20,7 +20,7 @@ export class SignupFormComponent implements OnInit {
   signup() {
     console.log(this.rol)
     console.log(this.account)
-    this.session.signup(this.name, this.email, this.rol, this.account, this.password)
+    this.session.signup(this.email, this.name, this.rol, this.account, this.password)
       .subscribe(
       (user) => console.log(user),
       (err) => this.error = err

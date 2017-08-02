@@ -8,6 +8,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from './main/main.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,7 +23,9 @@ const routes: Routes = [
     AppComponent,
     LoginFormComponent,
     SignupFormComponent,
-    MainComponent
+    MainComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

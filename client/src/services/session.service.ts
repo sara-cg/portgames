@@ -5,31 +5,34 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../environments/environment';
 
-export interface User{
-  _id:string,
+export interface User {
+  _id: string,
   email: string,
   name: string,
   rol: string,
   account: string,
   password: string,
-  updated_at:Date,
-  created_at:Date
+  updated_at: Date,
+  created_at: Date
 }
 
 @Injectable()
 export class SessionService {
-  user:User; // The current logged in user
-  startLoginCompleted:boolean = false;
-  BASE_URL:string=`${environment.BASE_URL}/api/auth`;
-  options:object = {withCredentials:true};
 
-  constructor(private http:Http) {
-    this.isLoggedIn().subscribe( (user:User) =>{
+  user: User; // The current logged in user
+  startLoginCompleted: boolean = false;
+  BASE_URL: string = `${environment.BASE_URL}/api/auth`;
+  options: object = { withCredentials: true };
+
+  constructor(private http: Http) {
+    this.isLoggedIn().subscribe((user: User) => {
       console.log(`Welcome again user ${user.name}`)
       this.user = user;
       this.startLoginCompleted = true;
     }, e => this.startLoginCompleted = true);
   }
+
+
 
   handleError(e) {
     console.error("Error en la llamada a la API");
@@ -37,17 +40,17 @@ export class SessionService {
   }
 
   signup(email: string,
-  name: string,
-  rol: string,
-  account: string,
-  password: string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/signup`, {email,name,rol,account,password}, this.options)
+    name: string,
+    rol: string,
+    account: string,
+    password: string): Observable<User> {
+    return this.http.post(`${this.BASE_URL}/signup`, { email, name, rol, account, password }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
-  login(email:string, password:string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/login`, {email,password}, this.options)
+  login(email: string, password: string): Observable<User> {
+    return this.http.post(`${this.BASE_URL}/login`, { email, password }, this.options)
       .map(res => {
         this.user = res.json();
         return this.user;
@@ -55,7 +58,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  logout():Observable<object>{
+  logout(): Observable<object> {
     return this.http.get(`${this.BASE_URL}/logout`, this.options)
       .map(res => {
         res.json();
@@ -64,7 +67,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  isLoggedIn():Observable<User>{
+  isLoggedIn(): Observable<User> {
     return this.http.get(`${this.BASE_URL}/loggedin`, this.options)
       .map(res => {
         this.user = res.json();
@@ -73,7 +76,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  getPrivateData():Observable<object>{
+  getPrivateData(): Observable<object> {
     return this.http.get(`${this.BASE_URL}/private`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
