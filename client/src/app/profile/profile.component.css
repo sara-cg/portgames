@@ -1,0 +1,51 @@
+.profile {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: Gray;
+  height: 200px;
+  width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.profile-image {
+  height: 200px;
+  width: 200px;
+  float: left;
+}
+
+.profile-info {
+  float: left;
+  margin-left: 50px;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+.username {
+  font-size: 2rem;
+  color: DarkOrchid;
+}
+
+.rol {
+  font-size: 1.5rem;
+}
+
+.email {
+  font-size: 1rem;
+  margin-left: 25px;
+  font-style: italic;
+}
+
+.account {
+  background-color: DarkOrchid;
+  height: 400px;
+}
+
+.project {
+  padding: 10px;
+  background-color: Gray;
+  height: 200px;
+}

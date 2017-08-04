@@ -10,12 +10,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login',  component: LoginFormComponent },
   { path: 'signup', component: SignupFormComponent },
-  { path: 'main', component: MainComponent }
+  { path: 'main', component: MainComponent },
+  { path: 'profile/:email', component: ProfileComponent }
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes: Routes = [
     SignupFormComponent,
     MainComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

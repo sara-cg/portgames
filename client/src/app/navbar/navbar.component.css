@@ -12,36 +12,36 @@ nav {
 }
 
 button {
-  color: purple;
+  color: DarkOrchid;
 }
 
 .main-button {
   float: left;
-  margin-left: 10px;
+  margin-left: 20px;
   border: none;
   background-color: transparent;
 }
 
-.profile-button {
+.right-buttons {
   float: right;
+}
+
+.profile-button {
   border: none;
   font-size: 1rem;
   font-weight: bold;
   color: black;
   background-color: transparent;
-  margin-top: -2px;
 }
 
 .logout-button {
-  float: right;
-  margin-right: 10px;
+  margin-right: 20px;
   font-size: 0.8rem;
   margin-left: 10px;
 }
 
 .login-button {
   float: left;
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 0.8rem;
-  margin-left: 10px;
 }
