@@ -11,6 +11,7 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GithubComponent } from './shared/github/github.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
     MainComponent,
     NavbarComponent,
     FooterComponent,
-    ProfileComponent
+    ProfileComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,
