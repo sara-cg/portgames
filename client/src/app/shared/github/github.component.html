@@ -1,1 +1,2 @@
 <button class="login" (click)="apiInfo()"> API info </button>
+<p *ngIf="this.userInfo">{{ this.userInfo.repos_url }}</p>

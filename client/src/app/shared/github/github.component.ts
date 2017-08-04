@@ -12,12 +12,15 @@ export class GithubComponent implements OnInit {
   userInfo: any
   constructor(private session: SessionService, private theApiInfo: ApiInfoService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.apiInfo();
+  }
 
   apiInfo() {
-    this.theApiInfo.getGithubUserInfo(this.session.user.account).subscribe(receivedInfo => {
-      this.userInfo = receivedInfo
-      console.log(this.userInfo);
+    this.theApiInfo.getGithubUserInfo(this.session.user.account)
+      .subscribe(receivedInfo => {
+        this.userInfo = receivedInfo
+        console.log(this.userInfo)
     });
   }
 

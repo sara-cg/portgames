@@ -10,7 +10,7 @@ export class ApiInfoService {
 
   getGithubUserInfo(account) {
     return this.http.get(`https://api.github.com/users/${account}`)
-      .map((res: Response) => console.log(res.json()));
+      .map((res: Response) => res.json())
   }
 
 }
