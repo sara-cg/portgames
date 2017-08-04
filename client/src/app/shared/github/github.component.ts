@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiInfoService } from '../../../services/api-info.service';
 import { SessionService } from '../../../services/session.service';
 
@@ -9,7 +9,8 @@ import { SessionService } from '../../../services/session.service';
   providers: [ApiInfoService]
 })
 export class GithubComponent implements OnInit {
-  userInfo: any
+  @Input() userInfo: any;
+  @Output() onAvatar = new EventEmitter<string>();
   constructor(private session: SessionService, private theApiInfo: ApiInfoService) { }
 
   ngOnInit() {
@@ -20,8 +21,13 @@ export class GithubComponent implements OnInit {
     this.theApiInfo.getGithubUserInfo(this.session.user.account)
       .subscribe(receivedInfo => {
         this.userInfo = receivedInfo
+        this.onAvatarLoaded()
         console.log(this.userInfo)
-    });
+      });
+  }
+
+  onAvatarLoaded () {
+    this.onAvatar.emit(this.userInfo.avatar_url);
   }
 
 }

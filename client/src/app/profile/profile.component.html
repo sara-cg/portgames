@@ -1,15 +1,15 @@
-  <div class="profile">
-    <div class="profile-image">
-      <img src="https://camo.githubusercontent.com/a46e11f1754269d31b848b450856d081a1b02461/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f32383831382f313633323038372f38353063613031612d353737322d313165332d386565652d3230613131636136353334662e706e67" alt="user.image" height="200px" width="200px">
-    </div>
-    <div class="profile-info">
-      <p class="username">{{ session.user.name }}</p>
-      <p class="rol">{{ session.user.rol }}<a href="mailto:{{session.user.email}}" class="email">Contact me: {{ session.user.email }}</a></p>
-    </div>
+<div class="profile">
+  <div class="profile-image">
+      <img src="{{ userAvatar }}" alt="user.image" height="200px" width="200px">
   </div>
-  <div class="account">
-      <app-github></app-github>
+  <div class="profile-info">
+    <p class="username">{{ session.user.name }}</p>
+    <p class="rol">{{ session.user.rol }}<a href="mailto:{{session.user.email}}" class="email">Contact me: {{ session.user.email }}</a></p>
   </div>
-  <div class="project">
+</div>
+<div class="account">
+  <app-github [userInfo]="userInfo" (onAvatar)="loadsAvatar($event)"></app-github>
+</div>
+<div class="project">
 
-  </div>
+</div>

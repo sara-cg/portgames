@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor(private session: SessionService, private router: Router) { }
-
-  ngOnInit() {
+  userAvatar: string
+  constructor(private session: SessionService, private router: Router) {
+    this.userAvatar = ""
   }
+  ngOnInit() {}
 
+  loadsAvatar(imgRoute){
+    this.userAvatar = imgRoute
+  }
 }

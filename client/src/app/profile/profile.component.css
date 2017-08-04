@@ -15,6 +15,8 @@ a {
   height: 200px;
   width: 200px;
   float: left;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .profile-info {
@@ -23,27 +25,22 @@ a {
   margin-top: 25px;
   font-weight: bold;
 }
-
 .username {
   font-size: 2rem;
   color: DarkOrchid;
 }
-
 .rol {
   font-size: 1.5rem;
 }
-
 .email {
   font-size: 1rem;
   margin-left: 25px;
   font-style: italic;
 }
-
 .account {
   background-color: DarkOrchid;
   height: 400px;
 }
-
 .project {
   padding: 10px;
   background-color: Gray;
