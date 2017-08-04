@@ -26,4 +26,5 @@ export class LoginFormComponent implements OnInit {
   signup() {
     this.router.navigate(['/signup']);  // <!-- Programmatically navigate to home
   }
+
 }

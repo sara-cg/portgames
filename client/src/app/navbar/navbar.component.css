@@ -11,17 +11,37 @@ nav {
   z-index: +1;
 }
 
-.go-to-profile {
+button {
+  color: purple;
+}
+
+.main-button {
   float: left;
-  width: 40%;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
 }
 
 .profile-button {
-  float: left;
+  float: right;
   border: none;
   font-size: 1rem;
   font-weight: bold;
   color: black;
   background-color: transparent;
   margin-top: -2px;
+}
+
+.logout-button {
+  float: right;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.login-button {
+  float: left;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  margin-left: 10px;
 }

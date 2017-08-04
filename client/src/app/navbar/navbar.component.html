@@ -1,10 +1,10 @@
 <nav>
-  <div *ngIf="session.user && session.startLoginCompleted" class="go-to-profile" >
-    <button class="main-button" (click)="logout()">Home</button>
-    <button class="profile-button" (click)="logout()">user.name</button>
-    <button class="signout" (click)="logout()">Log Out</button>
+  <div *ngIf="session.user" class="go-to-profile" >
+    <button class="main-button" [routerLink]="['/main']">Home</button>
+    <button class="profile-button" [routerLink]="['/main']">{{ user.name }}</button>
+    <button class="logout-button" (click)="logout()">Log Out</button>
   </div>
   <div *ngIf="!session.user || !session.startLoginCompleted" class="go-to-profile">
-    <button class="profile-button" [routerLink]="['/login']">Log In</button>
+    <button class="login-button" [routerLink]="['/login']">Log In</button>
   </div>
 </nav>

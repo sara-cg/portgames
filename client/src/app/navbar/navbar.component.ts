@@ -19,4 +19,13 @@ export class NavbarComponent implements OnInit {
     this.user = user;
     this.error = null;
   }
+
+  logout(){
+    this.session.logout()
+      .subscribe(
+        (user) => console.log(user),
+        (err) => this.error = err
+      )
+    this.router.navigate(['/login'])
+  }
 }
