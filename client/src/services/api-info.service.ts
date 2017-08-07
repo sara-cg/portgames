@@ -13,4 +13,9 @@ export class ApiInfoService {
       .map((res: Response) => res.json())
   }
 
+  getGithubReposInfo(account) {
+    return this.http.get(`https://api.github.com/users/${account}/repos`)
+      .map((res: Response) => res.json())
+  }
+
 }
